@@ -1,3 +1,10 @@
+const fs = require("fs");
+const axios = require("axios");
+const inquirer = require("inquirer");
+
+
+
+
 const questions = [{
     type: 'input',
     message: "Enter your GitHub username:",
@@ -5,7 +12,7 @@ const questions = [{
 },
 {
     type: 'input',
-    message: "Enter your GitHub username:",
+    message: "",
     name: "username"
 }
 
@@ -20,14 +27,16 @@ function init() {
 
 init();
 
-const fs = require("fs");
-const axios = require("axios");
-const inquirer = require("inquirer");
 
 inquirer
     .prompt({
         type: 'input',
         message: "Enter your GitHub username:",
+        name: "username"
+    })
+    .prompt({
+        type: 'input',
+        message: "What is the title of the Readme?",
         name: "username"
     })
     .then(function ({ username }) {
@@ -48,11 +57,6 @@ inquirer
             Questions
                         
                         
-            
-            
-            
-            
-            
             
             `, function (err) {
 
